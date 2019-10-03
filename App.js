@@ -4,12 +4,17 @@ import SegmentedControlIOS from '@react-native-community/segmented-control';
 // ref: https://github.com/react-native-community/react-native-segmented-control/blob/master/example/App.js
 
 export default class App extends React.Component {
+
+  // the initial state
   state = {
-    values: ['Movies', 'TV Shows'],
-    value: 'Unselected',
-    selectedIndex: undefined,
+    segmentedControl: {
+      values: ['Movies', 'TV Shows'],
+      value: 'Unselected',
+      selectedIndex: undefined,
+    }
   };
 
+  // onChange method
   _onChange = event => {
     this.setState({
       selectedIndex: event.nativeEvent.selectedSegmentIndex,
@@ -17,6 +22,7 @@ export default class App extends React.Component {
     console.log(`${this.state.selectedIndex}`)
   };
 
+   // onValueChange method
   _onValueChange = value => {
     this.setState({
       value: value,
@@ -38,7 +44,6 @@ export default class App extends React.Component {
       </View>
     );
   }
-
 }
 
 const styles = StyleSheet.create({
